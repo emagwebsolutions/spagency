@@ -1,3 +1,5 @@
+'use client';
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.scss';
@@ -5,7 +7,7 @@ import Wrapper from '@/components/Wrapper';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: 'S.P AGENCY',
   description: 'Billboard company in Accra Ghana',
 };

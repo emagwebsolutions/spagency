@@ -1,34 +1,21 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import useLink from '@/utils/useLink';
+import useLogo from '@/utils/useLogo';
 
 const Nav = () => {
   return (
     <nav>
       <div className="container">
-        <div>
-          <Image src="/logo.jpg" alt="Logo" width="8" height="7" />
-        </div>
+        <div>{useLogo(100, 70)}</div>
 
         <div>
-          <ul className="flex">
-            <li>
-              <Link href="/" >HOME</Link>
-            </li>
-            <li>
-              <Link href="/" >HOME</Link>
-            </li>
-            <li>
-              <Link href="/" >HOME</Link>
-            </li>
-            <li>
-              <Link href="/" >HOME</Link>
-            </li>
-            <li>
-              <Link href="/" >HOME</Link>
-            </li>
-            <li>
-              <Link href="/" >HOME</Link>
-            </li>
+          <ul>
+            {useLink('HOME', '/')}
+            {useLink('ABOUT', '/about')}
+            {useLink('PRODUCTS', '/boards')}
+            {useLink('SERVICES', '/services')}
+            {useLink('CLIENTS', '/clients')}
+            {useLink('CONNECT', '/connect')}
           </ul>
         </div>
       </div>
