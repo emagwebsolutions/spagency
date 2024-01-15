@@ -1,26 +1,50 @@
+
+
+
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-const Modalbox = ({ img }: { img: string }) => (
-  <div className="modal-overlay">
-    <div
-      style={{
-        backgroundColor: 'white',
-        padding: '2rem',
-        backgroundImage: `url(${img})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'top',
-        width: '40%',
-        height: '40rem',
-      }}
-    ></div>
-  </div>
-);
+type MD = {
+  img: string;
+  openmodal: boolean;
+  setOpenmodal: Function;
+};
 
-const Modal = ({ img }: { img: string }) => {
-  return createPortal(
-    <Modalbox img={img} />,
-    document.getElementById('modal') as Element
+const Modal = ({ img, openmodal, setOpenmodal }: MD) => {
+  useEffect(() => {
+    if (!openmodal) {
+
+        document.body.style.overflow = 'scroll';
+      
+    }
+  }, [openmodal]);
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+
+    setOpenmodal(false);
+  };
+
+  const output = openmodal ? (
+    <div className="modal-overlay" onClick={handleClick}>
+      <div
+        style={{
+          backgroundImage: `url(${img})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'top',
+          width: '40%',
+          height: '40rem',
+        }}
+      ></div>
+    </div>
+  ) : (
+    ''
   );
+
+  if (typeof window !== "undefined") {
+    return createPortal(output,document.getElementById('modal') as HTMLElement);
+  }
+
 };
 
 export default Modal;

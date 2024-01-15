@@ -1,12 +1,15 @@
-'use client'
+'use client';
 
 import Card from '@/components/Card';
 import Excerptox from '@/components/Excerptox';
 import Headeroverlay from '@/components/Headeroverlay';
+import Modal from '@/components/Modal';
 import Youtubebox from '@/components/Youtubebox';
-
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [openmodal, setOpenmodal] = useState(false);
+
   const services = [
     {
       _id: 1,
@@ -75,12 +78,29 @@ export default function Home() {
 
   const singleimg = gallery.splice(0, 1);
 
-  const handleClick = ()=>{
-    alert('Hi')
-  }
+  const [getImg, setImg] = useState('');
+
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    const img = e.target.dataset.img;
+    setImg(img);
+    setOpenmodal(true);
+  };
+
+
+  useEffect(() => {
+    if (openmodal) {
+
+        document.body.style.overflow = 'hidden';
+      
+    }
+  }, [openmodal]);
+
+
 
   return (
     <>
+      <Modal img={getImg} openmodal={openmodal} setOpenmodal={setOpenmodal} />
       <section className="header">
         <div></div>
         <Headeroverlay
@@ -145,6 +165,9 @@ export default function Home() {
         <h2>OUR WORKS</h2>
         <div className="container">
           <div
+            data-img={singleimg[0].img}
+            onClick={handleClick}
+            className="bigimg"
             style={{
               backgroundImage: `url(${singleimg[0].img})`,
               backgroundSize: 'cover',
@@ -158,8 +181,8 @@ export default function Home() {
             {Object.values(gallery).map((v, k) => {
               return (
                 <div
-
-                onClick={handleClick}
+                  data-img={v.img}
+                  onClick={handleClick}
                   key={k}
                   style={{
                     backgroundImage: `url(${v.img})`,

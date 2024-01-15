@@ -138,10 +138,19 @@
 }
 
 .modal-overlay{
+
+& > div{
+  border: solid 2rem white;
+}
+
+
+  z-index: 9999;
   width: 100%; 
   position: fixed; 
+  left: 0; 
+  top: 0;
   height: 100vh; 
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex; 
   justify-content: center;
   align-items: center;

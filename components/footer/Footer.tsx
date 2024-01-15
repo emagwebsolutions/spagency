@@ -8,21 +8,21 @@ const Footer = () => {
     <footer>
       <div className="container">
         {useFooter('SERVICES', {
-          ['Media Planning']: '/media',
-          ['Our Billboard']: '/media',
-          ['Count on us']: '/media',
+          ['Branding']: '/service',
+          ['Large Format Printing']: '/service',
+          ['Outdoor Advertising']: '/service',
         })}
 
-        {useFooter('SERVICES', {
-          ['Media Planning']: '/media',
-          ['Our Billboard']: '/media',
-          ['Count on us']: '/media',
+        {useFooter('ABOUT', {
+          ['Established in 2001, SP AGENCY LTD is one of the leading advertising, multimedia & marketing agencies. The company’s office is currently located at Tesano Accra with plans far  ...']: '/about'
         })}
 
-        {useFooter('SERVICES', {
-          ['Media Planning']: '/media',
-          ['Our Billboard']: '/media',
-          ['Count on us']: '/media',
+    
+
+        {useFooter('CONTACT', {
+          ['ACCRA Abeka Junction']: '/contact',
+          ['spagency90@gmail.com']: '/contact',
+          ['0302905727/0500080007']: '/contact',
         })}
       </div>
 
