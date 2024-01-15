@@ -1,7 +1,10 @@
+'use client'
+
 import Card from '@/components/Card';
 import Excerptox from '@/components/Excerptox';
 import Headeroverlay from '@/components/Headeroverlay';
 import Youtubebox from '@/components/Youtubebox';
+
 
 export default function Home() {
   const services = [
@@ -34,36 +37,47 @@ export default function Home() {
     },
   ];
 
-  const gallery = [
+  type GALLERY = {
+    name: string;
+    img: string;
+  }[];
+
+  const gallery: GALLERY = [
     {
       name: '',
-      imag: '/1.jpg',
+      img: '/gallery/1.jpg',
     },
     {
       name: '',
-      imag: '/2.jpg',
+      img: '/gallery/2.jpg',
     },
     {
       name: '',
-      imag: '/3.jpg',
+      img: '/gallery/3.jpg',
     },
     {
       name: '',
-      imag: '/4.jpg',
+      img: '/gallery/4.jpg',
     },
     {
       name: '',
-      imag: '/5.jpg',
+      img: '/gallery/5.jpg',
     },
     {
       name: '',
-      imag: '/6.jpg',
+      img: '/gallery/6.jpg',
     },
     {
       name: '',
-      imag: '/7.jpg',
+      img: '/gallery/7.jpg',
     },
   ];
+
+  const singleimg = gallery.splice(0, 1);
+
+  const handleClick = ()=>{
+    alert('Hi')
+  }
 
   return (
     <>
@@ -129,7 +143,37 @@ export default function Home() {
 
       <section className="sec4">
         <h2>OUR WORKS</h2>
-        <div className="container"></div>
+        <div className="container">
+          <div
+            style={{
+              backgroundImage: `url(${singleimg[0].img})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              width: '100%',
+              height: '40rem',
+              cursor: 'pointer',
+            }}
+          ></div>
+          <div>
+            {Object.values(gallery).map((v, k) => {
+              return (
+                <div
+
+                onClick={handleClick}
+                  key={k}
+                  style={{
+                    backgroundImage: `url(${v.img})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'top',
+                    width: '100%',
+                    height: '19.6rem',
+                    cursor: 'pointer',
+                  }}
+                ></div>
+              );
+            })}
+          </div>
+        </div>
       </section>
     </>
   );

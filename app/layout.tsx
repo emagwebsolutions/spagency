@@ -22,6 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Wrapper>{children}</Wrapper>
       </body>
+      <div id="modal"></div>
     </html>
   );
 }
