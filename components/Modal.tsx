@@ -32,8 +32,7 @@ const Modal = ({ img, openmodal, setOpenmodal }: MD) => {
           backgroundImage: `url(${img})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top',
-          width: '40%',
-          height: '40rem',
+ 
         }}
       ></div>
     </div>

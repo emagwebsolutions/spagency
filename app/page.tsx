@@ -87,16 +87,11 @@ export default function Home() {
     setOpenmodal(true);
   };
 
-
   useEffect(() => {
     if (openmodal) {
-
-        document.body.style.overflow = 'hidden';
-      
+      document.body.style.overflow = 'hidden';
     }
   }, [openmodal]);
-
-
 
   return (
     <>
