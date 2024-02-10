@@ -12,14 +12,15 @@
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^6.11.1",
     "@sanity/vision": "^3.27.0",
-    "axios": "^1.6.5",
+    "axios": "^1.6.7",
     "get-youtube-id": "^1.0.1",
     "next": "14.0.4",
     "next-sanity": "^7.0.6",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.49.2",
+    "react-hook-form": "^7.50.1",
     "react-query": "^3.39.3",
+    "react-slideshow-image": "^4.3.0",
     "react-youtube": "^10.1.0",
     "sass": "^1.69.7"
   },
@@ -32,9 +33,3 @@
     "typescript": "^5"
   }
 }
-
-
-
-
-
-

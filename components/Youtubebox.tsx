@@ -37,12 +37,12 @@ const Youtubebox = ({ url }: UR) => {
   if (url) {
     return (
       <div className="youtubebox">
-        {/* <YouTube
+        <YouTube
           videoId={getYouTubeID(url)}
           opts={opts}
           onReady={onPlayerReady}
           onEnd={onPlayerEnd}
-        /> */}
+        />
       </div>
     );
   } else {

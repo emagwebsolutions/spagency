@@ -66,6 +66,10 @@
     margin-inline: auto;
     padding-inline: 7rem;
     display: flex;
+    gap: 3rem;
+    & > div{
+      flex: 10rem 1 1;
+    }
   }
 
   .flex {

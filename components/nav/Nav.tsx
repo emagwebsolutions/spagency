@@ -20,7 +20,7 @@ const Nav = () => {
           <ul>
             {useLink('HOME', '/')}
             {useLink('ABOUT', '/about')}
-            {useLink('PRODUCTS', '/boards')}
+            {useLink('PRODUCTS', '/products')}
             {useLink('SERVICES', '/services')}
             {useLink('CLIENTS', '/clients')}
             {useLink('CONNECT', '/connect')}

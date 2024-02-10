@@ -183,11 +183,6 @@
     }
   }
 
-
-
-
-
-
   .sec4 {
     background-color: $yellow;
     padding: 3rem;
@@ -197,7 +192,7 @@
       gap: 1rem;
       & > div:nth-of-type(1) {
         margin-bottom: 1rem;
-        border: solid .6rem $black;
+        border: solid 0.6rem $black;
       }
       & > div:nth-of-type(2) {
         flex-basis: 60rem;
@@ -208,19 +203,9 @@
 
         div {
           flex: 10rem 1 1;
-          border: solid .6rem $black;
+          border: solid 0.6rem $black;
         }
       }
     }
   }
-
-
-
-
-
-
-
-
-
-
 }

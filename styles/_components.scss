@@ -1,0 +1,210 @@
+.pageheader {
+  position: relative;
+  padding-block: 5rem;
+
+  & > div {
+    height: 20rem;
+    align-items: center;
+    line-height: 5rem;
+    h1 {
+      font-size: 6rem;
+      font-weight: 900;
+      color: $white;
+      animation: animate-header-h1 1s 2s ease-out forwards;
+      opacity: 0;
+    }
+    h4 {
+      font-size: 2rem;
+      color: $yellow;
+      animation: animate-header-h4 1s 3s ease-out forwards;
+      opacity: 0;
+    }
+  }
+
+  @keyframes animate-header-h1 {
+    0% {
+      opacity: 0;
+      
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes animate-header-h4 {
+    0% {
+      opacity: 0;
+      
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),
+      url('/pageheader.jpg');
+    background-size: cover;
+    background-position: center;
+    animation: animate-header 1s 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes animate-header {
+    0% {
+      opacity: 0;
+      transform: translateY(-5rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: 1;
+    }
+  }
+}
+
+.imagebg {
+  position: relative;
+  padding-block: 5rem;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.8)
+      ),
+      url('/bgimg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: -1;
+  }
+  color: white;
+}
+
+.servbx {
+  display: flex;
+  gap: 2rem;
+  & > div:nth-of-type(1) {
+    width: 8rem;
+    height: 8rem;
+    background-color: $yellow;
+    border-radius: 50%;
+  }
+  & > div:nth-of-type(2) {
+    display: flex;
+    align-items: center;
+    height: 8rem;
+    h4 {
+      font-size: 2rem;
+    }
+  }
+}
+
+.yellowbox {
+  padding-block: 5rem;
+  background-color: $yellow;
+}
+
+.whitebox {
+  padding-block: 5rem;
+  background-color: $white;
+}
+
+.servcard {
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 2rem;
+}
+
+.divide {
+  width: 7rem;
+  margin: 0 auto;
+  margin-block: 1rem;
+  border-bottom: solid 0.3rem $yellow;
+}
+
+.contbox {
+  background-color: $yellow;
+  padding: 2.4rem;
+  text-align: center;
+  i {
+    display: grid;
+    place-items: center;
+    color: white;
+    font-family: 3rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: solid 0.3rem white;
+    margin: 0 auto;
+  }
+  h3 {
+    color: white;
+    font-size: 2.3rem;
+    margin-block: 1.5rem;
+  }
+  & > div {
+    font-size: 1.6rem;
+  }
+}
+
+.contactform {
+  background-color: #dedede;
+  padding: 4rem;
+  input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  textarea {
+    width: 99.7%;
+    border: none;
+    outline: none;
+    height: 10rem;
+    padding: 1.2rem;
+  }
+  h4 {
+    margin-bottom: 1.2rem;
+  }
+}
+
+
+.products{
+  padding-block: 5rem;
+}
+
+
+.clients{
+  padding-block: 5rem; 
+  & > div{
+    div{
+   
+      height: 20rem;
+    }
+  }
+}
+
+
+.contact{
+  padding-block: 5rem;
+  & > div:nth-of-type(1){
+    margin-bottom: 5rem;
+  }
+}

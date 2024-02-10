@@ -1,41 +1,65 @@
 'use client';
 
+import useGetQuery from '@/axios/useGetQuery';
 import Card from '@/components/Card';
 import Excerptox from '@/components/Excerptox';
 import Headeroverlay from '@/components/Headeroverlay';
 import Modal from '@/components/Modal';
 import Youtubebox from '@/components/Youtubebox';
+import Slider from '@/components/home/Slider';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [openmodal, setOpenmodal] = useState(false);
 
+
+  //SETTINGS  DATA
+    const { data } = useGetQuery('setti', '/settings');
+  type SETTINS = {
+    comp_email: string;
+    comp_location: string;
+    comp_name: string;
+    comp_phone: string;
+    facebook: string;
+    instagram: string;
+    twitter: string;
+    youtube: string;
+  };
+  const sett: SETTINS = data ? data?.data[0] : [];
+
+
+//SERVICES DATA
+const {data: serv} = useGetQuery('serv', '/services')
+const servdata = serv? serv?.data : []
+
+const serv1 = servdata[0]
+const serv2 = servdata[1]
+const serv3 = servdata[2]
+
+
   const services = [
     {
-      _id: 1,
-      fa: '',
-      title: 'Branding',
-      excerpt:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto dignissimos accusantium quasi iure iste reiciendis ',
-      link: '/service',
+      _id: serv1?._id,
+      fa: 'picture-o',
+      title: serv1?.title,
+      excerpt: serv1?.excerpt,
+      link: '/services',
       linktext: 'Learn more',
     },
     {
-      _id: 2,
-      fa: '',
-      title: 'Large Format Printing',
-      excerpt:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto dignissimos accusantium quasi iure iste reiciendis ',
-      link: '/service',
+      _id: serv2?._id,
+      fa: 'newspaper-o',
+      title: serv2?.title,
+      excerpt: serv2?.excerpt,
+      link: '/services',
       linktext: 'Learn more',
     },
     {
-      _id: 3,
-      fa: '',
-      title: 'Outdoor Advertising',
-      excerpt:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto dignissimos accusantium quasi iure iste reiciendis ',
-      link: '/service',
+      _id: serv3?._id,
+      fa: 'id-card-o',
+      title: serv3?.title,
+      excerpt: serv3?.excerpt,
+      link: '/services',
       linktext: 'Learn more',
     },
   ];
@@ -96,10 +120,13 @@ export default function Home() {
   return (
     <>
       <Modal img={getImg} openmodal={openmodal} setOpenmodal={setOpenmodal} />
+
       <section className="header">
-        <div></div>
+        <div>
+          <Slider />
+        </div>
         <Headeroverlay
-          title="S.P AGENCY"
+          title={sett?.comp_name?.toUpperCase()}
           caption="Give your business the presence it deserves with S.P AGENCY"
         />
       </section>
@@ -134,7 +161,7 @@ export default function Home() {
             btn2_link="/about"
           />
 
-          <Youtubebox url="https://www.youtube.com" />
+          <Youtubebox url={sett?.youtube} />
         </div>
       </section>
 
