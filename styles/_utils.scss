@@ -1,4 +1,32 @@
 @media (min-width: 35em) {
+
+.products{
+  & > div{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5rem;
+    div{
+      flex: 30rem 0 1;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.fa-picture-o, 
+.fa-newspaper-o, 
+.fa-id-card-o{
+  font-size: 3rem;
+
+}
+
+
+
+  .prod-card{
+    box-shadow: .8rem .8rem 2rem rgba(0,0,0, .2);
+    border-bottom-left-radius: 5rem;
+    overlay: hidden;
+  }
   .card {
     position: relative;
     text-align: center;

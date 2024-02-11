@@ -2,36 +2,58 @@ import useCopyright from '@/utils/useCopyright';
 import useFooter from '@/utils/useFooter';
 import useLogo from '@/utils/useLogo';
 import useSocial from '@/utils/useSocial';
+import useGetQuery from '@/axios/useGetQuery';
 
 const Footer = () => {
+  //SETTINGS  DATA
+  const { data } = useGetQuery('setti', '/settings');
+  type SETTINS = {
+    comp_email: string;
+    comp_location: string;
+    comp_name: string;
+    comp_phone: string;
+    facebook: string;
+    instagram: string;
+    twitter: string;
+    youtube: string;
+  };
+  const sett: SETTINS = data ? data?.data[0] : [];
+
+  //ABOUT DATA
+  const { data: abt } = useGetQuery('abt', '/about');
+  const about = abt ? abt?.data : [];
+
+const aboutexcerpt = about[1]?.excerpt.slice(0,100)
+
+
+  
   return (
     <footer>
       <div className="container">
         {useFooter('SERVICES', {
-          ['Branding']: '/service',
-          ['Large Format Printing']: '/service',
-          ['Outdoor Advertising']: '/service',
+          ['Branding']: '/services',
+          ['Large Format Printing']: '/services',
+          ['Outdoor Advertising']: '/services',
         })}
-
         {useFooter('ABOUT', {
-          ['Established in 2001, SP AGENCY LTD is one of the leading advertising, multimedia & marketing agencies. The company’s office is currently located at Tesano Accra with plans far  ...']: '/about'
+          [aboutexcerpt]:
+            '/about',
         })}
-
-    
 
         {useFooter('CONTACT', {
-          ['ACCRA Abeka Junction']: '/contact',
-          ['spagency90@gmail.com']: '/contact',
-          ['0302905727/0500080007']: '/contact',
+          [sett?.comp_location]: '/contact',
+          [sett?.comp_email]: '/contact',
+          [sett?.comp_phone]: '/contact',
         })}
       </div>
 
       <div>
         {useLogo(60, 50)}
+
         {useSocial({
-          ['facebook']: 'https://www.facebook.com',
-          ['twitter']: 'https://www.twitter.com',
-          ['instagram']: 'https://www.instagram.com',
+          ['facebook']: `${sett?.facebook}`,
+          ['twitter']: `${sett?.twitter}`,
+          ['instagram']: `${sett?.instagram}`,
         })}
 
         {useCopyright({

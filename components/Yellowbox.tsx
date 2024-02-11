@@ -1,6 +1,8 @@
+import BlockContents from "./BlockContents";
+
 type Obj = {
   img: string;
-  para: string;
+  para: React.ReactNode
 };
 const Yellowbox = ({ img, para }: Obj) => {
   return (
@@ -8,14 +10,14 @@ const Yellowbox = ({ img, para }: Obj) => {
       <div className="container">
         <div
           style={{
-            backgroundImage: `url('/${img}')`,
+            backgroundImage: `url('${img}')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'none',
             height: '40rem',
           }}
         ></div>
-        <div>{para}</div>
+        <div><BlockContents data={para} /></div>
       </div>
     </div>
   );

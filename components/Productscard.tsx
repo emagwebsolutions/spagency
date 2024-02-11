@@ -5,15 +5,16 @@ type Obj = {
 };
 
 const Productscard = ({ img, title, handleClick}: Obj) => {
+  console.log(title)
   return (
-    <div>
+    <div className="prod-card">
       <div
     
     data-img={img}
     onClick={handleClick}
 
         style={{
-          backgroundImage: `url('/${img}')`,
+          backgroundImage: `url('${img}')`,
           backgroundSize: 'cover', 
           backgroundPosition: 'center', 
           cursor: 'pointer',
@@ -23,7 +24,8 @@ const Productscard = ({ img, title, handleClick}: Obj) => {
 
       <h3 style={{
         textAlign: 'center', 
-        padding: '2rem'
+        padding: '2rem',
+        color: 'black'
       }}>{title}</h3>
     </div>
   );

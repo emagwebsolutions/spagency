@@ -8,11 +8,9 @@ export async function GET(req: Request) {
   try {
     const res = await client.fetch(
       groq`
-      *[_type == 'about']{
-        title, 
-        body,
-        "image": mainImage.asset->url,
-        "excerpt": array::join(string::split((pt::text(body)), "")[0..500], "") + "...",
+      *[_type == 'product']{
+        "title": product,
+        'image': mainImage.asset->url
       }
     `
     );

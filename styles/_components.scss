@@ -103,6 +103,9 @@
     height: 8rem;
     background-color: $yellow;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   & > div:nth-of-type(2) {
     display: flex;

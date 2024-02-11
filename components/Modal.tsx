@@ -41,7 +41,9 @@ const Modal = ({ img, openmodal, setOpenmodal }: MD) => {
   );
 
   if (typeof window !== "undefined") {
+    if(document.getElementById('modal')){
     return createPortal(output,document.getElementById('modal') as HTMLElement);
+    }
   }
 
 };

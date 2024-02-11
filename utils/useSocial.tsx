@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 const useSocial = ({ ...rest }) => {
   const items = Object.entries(rest).map(([fa, link], k) => (
-    <Link href={link} key={k}>
+    <a href={link} key={k} target="_blank">
       <i className={`fa fa-${fa} fa-lg`}>a</i>
-    </Link>
+    </a>
   ));
 
   return <div className="social-media">{items}</div>;
