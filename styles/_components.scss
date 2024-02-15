@@ -10,13 +10,13 @@
       font-size: 6rem;
       font-weight: 900;
       color: $white;
-      animation: animate-header-h1 1s 2s ease-out forwards;
+      animation: animate-header-h1 1s 2s cubic-bezier(0, 0.5, 0, 1) forwards;
       opacity: 0;
     }
     h4 {
       font-size: 2rem;
       color: $yellow;
-      animation: animate-header-h4 1s 3s ease-out forwards;
+      animation: animate-header-h4 1s 3s cubic-bezier(0, 0.5, 0, 1) forwards;
       opacity: 0;
     }
   }
@@ -24,20 +24,22 @@
   @keyframes animate-header-h1 {
     0% {
       opacity: 0;
-      
+      transform: scale(0.1rem);
     }
     100% {
       opacity: 1;
+      transform: none;
     }
   }
 
   @keyframes animate-header-h4 {
     0% {
       opacity: 0;
-      
+      transform: scale(0.1rem);
     }
     100% {
       opacity: 1;
+      transform: none;
     }
   }
 
@@ -49,11 +51,15 @@
     left: 0;
     right: 0;
     z-index: -1;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.8)
+      ),
       url('/pageheader.jpg');
     background-size: cover;
     background-position: center;
-    animation: animate-header 1s 1s ease-out forwards;
+    animation: animate-header 1s 1s cubic-bezier(0, 0.5, 0, 1) forwards;
     opacity: 0;
   }
 
@@ -145,6 +151,8 @@
   background-color: $yellow;
   padding: 2.4rem;
   text-align: center;
+  transform: skew(-4deg);
+  box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.3);
   i {
     display: grid;
     place-items: center;
@@ -167,18 +175,47 @@
 }
 
 .contactform {
-  background-color: #dedede;
   padding: 4rem;
+  width: 100%;
+  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.1);
   input {
     width: 100%;
-    border: none;
+    border: 0.1rem #ccc solid;
     outline: none;
     padding: 1.2rem;
     margin-bottom: 1.5rem;
+
+  }
+  input:focus + label{
+    margin-top: -2.7rem;
+    font-size: 1rem;
+    transition: .2s;
+  }
+
+
+  input:not(:placeholder-shown) + label{
+    margin-top: -2.7rem;
+    font-size: 1rem;
+    transition: .2s;
+  }
+
+  button {
+    background-color: $yellow;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: none;
+    width: 10rem;
+    margin-top: 2rem;
+    cursor: pointer;
+    &:hover {
+      transition: 0.2s;
+      background-color: transparent;
+      border: solid 0.1rem #555;
+    }
   }
   textarea {
-    width: 99.7%;
-    border: none;
+    width: 100%;
+    border: 0.1rem #ccc solid;
     outline: none;
     height: 10rem;
     padding: 1.2rem;
@@ -186,28 +223,53 @@
   h4 {
     margin-bottom: 1.2rem;
   }
+  .form-control {
+    position: relative;
+    & > label {
+      position: absolute;
+      top: 0.8rem;
+      left: 1rem;
+      pointer-events: none;
+    }
+  }
 }
 
+.contact {
+  padding-block: 5rem;
+  & > div:nth-of-type(1) {
+    margin-bottom: 5rem;
+  }
+}
 
-.products{
+.contact-form-area {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  padding-inline: 7rem;
+  & > div {
+    flex: 12rem 1 1;
+    height: auto;
+  }
+  iframe {
+    border: 0;
+  }
+}
+
+.products {
   padding-block: 5rem;
 }
 
-
-.clients{
-  padding-block: 5rem; 
-  & > div{
-    div{
-   
+.clients {
+  padding-block: 5rem;
+  & > div {
+    div {
       height: 20rem;
     }
   }
 }
 
 
-.contact{
-  padding-block: 5rem;
-  & > div:nth-of-type(1){
-    margin-bottom: 5rem;
-  }
+.err-box{
+  color: red;
+  
 }

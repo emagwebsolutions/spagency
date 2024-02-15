@@ -7,7 +7,7 @@ type Obj = {
 const Contbox = ({ title, text, fa }: Obj) => {
   return (
     <div className="contbox">
-      <i className={`fa fa-${fa}`}>d</i>
+      <i className={`fa fa-${fa}`}></i>
       <h3>{title}</h3>
       <div>{text}</div>
     </div>
