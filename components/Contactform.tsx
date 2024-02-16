@@ -1,8 +1,13 @@
 import { useForm } from 'react-hook-form';
 import Errorbox from './Errorbox';
-import axios from 'axios'
+import axios from 'axios';
+import {useState} from 'react'
 
 const Contactform = () => {
+
+  const [getStatus,setStatus] = useState(false)
+
+
   type FS = {
     fullname: string;
     company: string;
@@ -22,15 +27,23 @@ const Contactform = () => {
   });
 
   const { register, handleSubmit, formState } = form;
-  const { errors } = formState;
+  const { errors,isSubmitSuccessful, isSubmitting } = formState;
 
   const submitForm = (data: FS) => {
-
-
-
-
-    console.log(data);
+    axios
+      .post('api/sendmail', {
+        data
+      })
+      .then((resp) => (resp?.data?.status))
+      .catch((err) => console.log(err));
   };
+
+
+
+
+  if(isSubmitSuccessful){
+    return <div className="email-sent"> Email sent!</div>
+  }
 
   return (
     <div className="contactform">
@@ -75,6 +88,10 @@ const Contactform = () => {
                 value: true,
                 message: 'Email field required!',
               },
+              pattern: {
+                value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                message: 'Invalid email address',
+              },
             })}
           />
           <label htmlFor="">Email</label>
@@ -90,6 +107,10 @@ const Contactform = () => {
                 value: true,
                 message: 'Phone field required!',
               },
+              minLength: {
+                value: 10, 
+                message: 'Valid phone number required!'
+              }
             })}
           />
           <label htmlFor="">Phone</label>
@@ -106,10 +127,10 @@ const Contactform = () => {
               },
             })}
           ></textarea>
-                  <Errorbox err={errors?.message?.message} />
+          <Errorbox err={errors?.message?.message} />
         </div>
 
-        <button type="submit">SEND</button>
+        <button>SEND</button>
       </form>
     </div>
   );

@@ -1,9 +1,6 @@
 'use client';
 
 import Pageheader from '@/components/Pageheader';
-import Yellowbox from '@/components/Yellowbox';
-import Servcard from '@/components/Servcard';
-import Servicebox from '@/components/Servicebox';
 import Imagebg from '@/components/Imagebg';
 import Productscard from '@/components/Productscard';
 import Modal from '@/components/Modal';

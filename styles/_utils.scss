@@ -1,32 +1,23 @@
 @media (min-width: 35em) {
-
-.products{
-  & > div{
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5rem;
-    div{
-      flex: 30rem 0 1;
-      overflow: hidden;
-      margin-bottom: 2rem;
+  .products {
+    & > div {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5rem;
+      div {
+        flex: 30rem 0 1;
+        overflow: hidden;
+        margin-bottom: 2rem;
+      }
     }
   }
-}
 
-.fa-picture-o, 
-.fa-newspaper-o, 
-.fa-id-card-o{
-  font-size: 3rem;
-
-}
-
-
-
-  .prod-card{
-    box-shadow: .8rem .8rem 2rem rgba(0,0,0, .2);
-    border-bottom-left-radius: 5rem;
-    overlay: hidden;
+  .fa-picture-o,
+  .fa-newspaper-o,
+  .fa-id-card-o {
+    font-size: 3rem;
   }
+
   .card {
     position: relative;
     text-align: center;
@@ -95,7 +86,7 @@
     padding-inline: 7rem;
     display: flex;
     gap: 3rem;
-    & > div{
+    & > div {
       flex: 10rem 1 1;
     }
   }
@@ -274,7 +265,7 @@
       gap: 2rem;
       a {
         display: block;
-        width: 30%;
+        width: 50%;
         padding: 1rem;
         text-align: center;
       }
@@ -289,15 +280,13 @@
     }
   }
 
-
-
   .modal-overlay {
     & > div {
       border: solid 2rem white;
       width: 90%;
       height: 40rem;
     }
-  
+
     z-index: 9999999;
     width: 100%;
     position: fixed;
@@ -310,15 +299,4 @@
     align-items: center;
     overflow: hidden;
   }
-
-
-
-
-
-
-
-
-
-
-
 }

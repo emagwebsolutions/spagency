@@ -18,12 +18,12 @@ const Nav = () => {
 
         <div className={show ? 'navlinks show' : 'navlinks'}>
           <ul>
-            {useLink('HOME', '/')}
-            {useLink('ABOUT', '/about')}
-            {useLink('PRODUCTS', '/products')}
-            {useLink('SERVICES', '/services')}
-            {useLink('CLIENTS', '/clients')}
-            {useLink('CONNECT', '/connect')}
+            {useLink('HOME', '/' , hideBox )}
+            {useLink('ABOUT', '/about' , hideBox)}
+            {useLink('PRODUCTS', '/products' , hideBox)}
+            {useLink('SERVICES', '/services' , hideBox)}
+            {useLink('CLIENTS', '/clients', hideBox)}
+            {useLink('CONNECT', '/connect', hideBox)}
           </ul>
         </div>
       </div>
