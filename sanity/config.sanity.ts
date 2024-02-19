@@ -7,7 +7,7 @@ const config = defineConfig({
   dataset: 'production',
   apiVersion: '2024-02-06',
   title: 'S.P AGENCY',
-  basePath: '/dashboard',
+  basePath: '/adminpage',
   plugins: [deskTool()],
   schema: {
     types: schemaTypes,
