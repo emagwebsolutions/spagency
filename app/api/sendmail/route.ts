@@ -8,10 +8,6 @@ export async function POST(req: Request) {
 
 
   const res = obj?.data
-
-console.log(res)
-  
-
   
     const from = res?.email
     const subject = 'Contact Message';
@@ -48,7 +44,7 @@ console.log(res)
 
     const options = {
       from, 
-      to: 'spagencysocials@gmail.com',
+      to: 'spagency90@gmail.com',
       subject, 
       html: message, 
       text: message

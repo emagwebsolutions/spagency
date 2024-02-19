@@ -121,7 +121,7 @@ export default function Home() {
             excerpt={about[1]?.excerpt}
             btn1_name="Contact us"
             btn2_name="Learn more"
-            btn1_link="/contact"
+            btn1_link="/connect"
             btn2_link="/about"
           />
 
